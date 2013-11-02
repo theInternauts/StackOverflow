@@ -1,0 +1,46 @@
+O-auth rail
+
+nested routes
+q votes
+a votes  same table
+
+validate single voting princ.
+
+
+
+questions
+  title
+  body
+  user_id
+
+answers
+  body
+  question_id
+  user_id
+
+comments
+  body
+  answer_id
+  question_id
+  person_id
+  user_id
+
+user
+  name
+  email
+
+
+# comments
+
+
+# question
+has_many :comments, :as => :commentable
+
+question.answers
+question.comments
+answer.comments
+answer.question
+
+user.questions
+user.answers
+user.comments
