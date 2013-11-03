@@ -1,12 +1,6 @@
 <h1>All Questions</h1>
 <ol>
-  <li>Question</li>
-  <li>Question</li>
-  <li>Question</li>
-  <li>Question</li>
-  <li>Question</li>
-  <li>Question</li>
-  <li>Question</li>
-  <li>Question</li>
-
+  <% @questions.each do |q| %>
+    <li><%= link_to q.title, q %></li>
+  <% end %>
 </ol>

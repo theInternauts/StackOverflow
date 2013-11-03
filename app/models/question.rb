@@ -1,4 +1,6 @@
 class Question < ActiveRecord::Base
-  has_many :votes, as :votable
+  attr_accessible :title, :body
+  has_many :votes, as: :votable
+  has_many :answers
   belongs_to :user
 end

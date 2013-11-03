@@ -1,6 +1,7 @@
 StackOverflow::Application.routes.draw do
   root to: 'questions#index'
-  resources :questions, only: [:index, :create, :new]
+  resources :questions, only: [:index, :create, :new, :show]
+  resources :answers, only: [:index, :new, :create, :show]
 
 end
   # The priority is based upon order of creation:
