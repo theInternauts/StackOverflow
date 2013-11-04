@@ -4,16 +4,24 @@ class QuestionsController < ApplicationController
   end
 
   def create
-    @question = Question.new(params[:question])
-    if @question.save
-      redirect_to @question
+    if signed_in?
+      @question = Question.new(params[:question])
+      if @question.save
+        redirect_to @question
+      else
+        render "new"
+      end
     else
-      render "new"
+      redirect_to sign_in_path
     end
   end
 
   def new
-    @question = Question.new
+    if signed_in?
+      @question = Question.new
+    else
+      redirect_to sign_in_path
+    end
   end
 
   def show

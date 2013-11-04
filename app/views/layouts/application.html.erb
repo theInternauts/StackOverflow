@@ -8,15 +8,17 @@
 </head>
 <body>
   <div id="main_toolbar">
+    <div class="login-link">
+      <% if signed_in? %>
+      Signed in as: <span="#user_email"><%= current_user.email %></span>
+      <span class="login-link"><%= link_to 'Sign out', sign_out_path, :method => :delete %></span>
+    <% else %>
+      <span class="login-link"><%= link_to 'Sign in', sign_in_path %></span>
+    <% end %>
+    </div>
     <ul>
       <li><a href="/">home</a></li>
       <li><a href="/questions/new">new question</a></li>
-      <% if signed_in? %>
-      Signed in as: <%= current_user.email %>
-      <li><%= link_to 'Sign out', sign_out_path, :method => :delete %></li>
-    <% else %>
-      <li><%= link_to 'Sign in', sign_in_path %></li>
-    <% end %>
     </ul>
   </div>
   <div id="flash">
@@ -26,8 +28,6 @@
   </div>
   <div id="container">
     <%= yield %>
-
   </div>
-
 </body>
 </html>
