@@ -1,14 +1,12 @@
 class AnswersController < ApplicationController
-  def new
-    @answer = Answer.new
-  end
-
   def create
-    @answer = Answer.new(params[:answer])
+    @question = Question.find(params[:question_id])
+    @answer = @question.answers.new(params[:answer])
     if @answer.save
-      redirect_to @answer
+      redirect_to @question
     else
-      render "new"
+      p "*" * 50
+      p "comment creation failed"
     end
   end
 

@@ -2,4 +2,21 @@
   <span><%= @question.title %></span><br />
   <span><%= @question.body %></span>
 </div>
-<div><%= link_to "Add an Answer", new_answer_path %></div>
+<hr>
+<h3>Add an Answer</h3>
+<%= form_for [@question, Answer.new] do |f| %>
+  <%= label_tag :answer, "Body:" %>
+  <%= f.text_field :body %>
+  <%= f.submit "Add Answer" %>
+<% end %>
+
+<ol>
+  <% @question.answers.each do |ans| %>
+    <li>
+      <div>
+        <span><%= ans.body %></span>
+        <span><%= ans.updated_at %></span>
+      </div>
+    </li>
+  <% end %>
+</ol>
