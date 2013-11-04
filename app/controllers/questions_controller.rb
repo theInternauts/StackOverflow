@@ -6,6 +6,7 @@ class QuestionsController < ApplicationController
   def create
     if signed_in?
       @question = Question.new(params[:question])
+      @question.user_id = current_user.id
       if @question.save
         redirect_to @question
       else
