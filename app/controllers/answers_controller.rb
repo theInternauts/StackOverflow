@@ -13,4 +13,8 @@ class AnswersController < ApplicationController
       redirect_to sign_in_path
     end
   end
+
+  def destroy
+    redirect_to '/'
+  end
 end
