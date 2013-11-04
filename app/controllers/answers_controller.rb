@@ -10,7 +10,4 @@ class AnswersController < ApplicationController
     end
   end
 
-  def show
-    @answer = Answer.find(params[:id])
-  end
 end

@@ -1,7 +1,7 @@
 StackOverflow::Application.routes.draw do
   root to: 'questions#index'
   resources :questions, only: [:index, :create, :new, :show]
-  resources :answers, only: [:create, :show]
+  resources :answers, only: [:create]
   resources :questions, only: [:create] do
     resources :answers, only: [:create]
   end
